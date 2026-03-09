@@ -6,6 +6,18 @@ Maintained by [Gururaj G J](https://www.linkedin.com/in/gururaj-gj-52a062b4) —
 
 ---
 
+## Purpose of This Library
+
+This repository documents fraud signals and correlation patterns observed across payment platforms, online services, and digital marketplaces.
+
+The goal is to structure fraud detection thinking around **signals, patterns, and correlation** rather than isolated incidents.
+
+Most fraud investigations focus on a single event. This library is built on a different premise: fraud is a system, and detecting it reliably requires understanding how signals cluster, correlate, and escalate across multiple dimensions simultaneously.
+
+This is intended to serve as a practical reference framework for fraud analysts, risk architects, and Trust & Safety practitioners building or improving detection systems.
+
+---
+
 ## Overview
 
 Fraud rarely operates within a single dimension. Attackers correlate activity across devices, networks, identities, and timing patterns to evade detection.
