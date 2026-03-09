@@ -14,6 +14,50 @@ This library documents the **signals** fraud and risk teams should monitor to id
 
 ---
 
+## Fraud Detection Architecture
+
+This library is organized to mirror how a layered fraud detection system actually works — signals flow upward from raw data through correlation into actionable investigation:
+
+```
+┌────────────────────┐
+│   Device Signals    │  ← Emulator detection, device sharing, ID cycling
+└─────────┬─────────┘
+          │
+          ▼
+┌────────────────────┐
+│  Network Signals   │  ← VPN/proxy, datacenter IPs, IP velocity
+└─────────┬─────────┘
+          │
+          ▼
+┌────────────────────┐
+│ Behavioral Signals │  ← Session anomalies, credential stuffing, ATO patterns
+└─────────┬─────────┘
+          │
+          ▼
+┌────────────────────┐
+│Transaction Signals │  ← Card testing, chargeback abuse, mule patterns
+└─────────┬─────────┘
+          │
+          ▼
+┌────────────────────┐
+│  Signal Correlation │  ← Patterns that combine signals into typologies
+└─────────┬─────────┘
+          │
+          ▼
+┌────────────────────┐
+│  Risk Scoring Engine│  ← Weighted signal scoring + rule engine
+└─────────┬─────────┘
+          │
+          ▼
+┌────────────────────┐
+│Investigation Workflow│ ← Case management, evidence, escalation
+└────────────────────┘
+```
+
+> **Key Principle:** No single signal is fraud. Correlation across multiple layers is how real fraud detection systems separate genuine abuse from noise.
+
+---
+
 ## Signal Categories
 
 | File | Description |
@@ -22,18 +66,21 @@ This library documents the **signals** fraud and risk teams should monitor to id
 | [network-signals.md](./network-signals.md) | IP, proxy, VPN, and ASN-based risk indicators |
 | [behavioral-signals.md](./behavioral-signals.md) | Session patterns, velocity, timing, and interaction anomalies |
 | [transaction-signals.md](./transaction-signals.md) | Payment fraud patterns, card abuse, chargeback signals |
+| [fraud-signal-correlation.md](./fraud-signal-correlation.md) | How signals combine into fraud typologies: account farms, ATO, mule clusters, synthetic identity |
 
 ---
 
 ## How to Use This Library
 
-Each file contains:
+Each signal file contains:
 - **Signal name** — what it is
 - **Why it matters** — fraud context and attacker behavior
 - **Detection approach** — how to surface it in your systems
 - **Risk level** — Low / Medium / High / Critical
 
-These signals are intended for:
+The correlation file documents how signals **combine** into recognizable fraud typologies, with a quick-reference matrix and 7 fully documented attack patterns.
+
+This library is intended for:
 - Fraud analysts building detection rules
 - Risk architects designing fraud frameworks
 - Trust & Safety teams reviewing platform abuse
