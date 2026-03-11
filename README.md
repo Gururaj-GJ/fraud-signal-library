@@ -1,8 +1,10 @@
 # Fraud Signal Library
 
-> A practitioner-built reference library of fraud detection signals used in fraud intelligence, risk architecture, and investigation workflows.
+A structured library of fraud detection signals used in risk engines, fraud monitoring systems, and AI-agent trust architectures.
 
 Maintained by [Gururaj G J](https://www.linkedin.com/in/gururaj-gj-52a062b4) — Fraud Intelligence Specialist | Founder, [Zarelva](https://zarelva.com)
+
+> A practitioner-built reference library of fraud detection signals used in fraud intelligence, risk architecture, and investigation workflows.
 
 ---
 
@@ -32,32 +34,32 @@ This library is organized to mirror how a layered fraud detection system actuall
 
 ```
 ┌────────────────────┐
-│   Device Signals    │  ← Emulator detection, device sharing, ID cycling
+│   Device Signals   │ ← Emulator detection, device sharing, ID cycling
 └─────────┬─────────┘
           │
           ▼
 ┌────────────────────┐
-│  Network Signals   │  ← VPN/proxy, datacenter IPs, IP velocity
+│  Network Signals   │ ← VPN/proxy, datacenter IPs, IP velocity
 └─────────┬─────────┘
           │
           ▼
 ┌────────────────────┐
-│ Behavioral Signals │  ← Session anomalies, credential stuffing, ATO patterns
+│Behavioral Signals  │ ← Session anomalies, credential stuffing, ATO patterns
 └─────────┬─────────┘
           │
           ▼
 ┌────────────────────┐
-│Transaction Signals │  ← Card testing, chargeback abuse, mule patterns
+│Transaction Signals │ ← Card testing, chargeback abuse, mule patterns
 └─────────┬─────────┘
           │
           ▼
 ┌────────────────────┐
-│  Signal Correlation │  ← Patterns that combine signals into typologies
+│ Signal Correlation │ ← Patterns that combine signals into typologies
 └─────────┬─────────┘
           │
           ▼
 ┌────────────────────┐
-│  Risk Scoring Engine│  ← Weighted signal scoring + rule engine
+│ Risk Scoring Engine│ ← Weighted signal scoring + rule engine
 └─────────┬─────────┘
           │
           ▼
@@ -97,6 +99,32 @@ This library is intended for:
 - Risk architects designing fraud frameworks
 - Trust & Safety teams reviewing platform abuse
 - Fintech teams scaling faster than their risk controls
+
+---
+
+## Example Usage
+
+Signals from this library can feed into fraud scoring engines and risk decision workflows.
+
+Example pipeline:
+
+```
+Transaction / Agent Activity
+        ↓
+Fraud Signal Detection
+        ↓
+Risk Scoring Engine
+        ↓
+ALLOW / REVIEW / BLOCK
+```
+
+---
+
+## Implementation Example
+
+The signals in this library are designed to feed into fraud scoring engines, rule-based risk systems, and AI-agent trust architectures, such as the Zarelva Agent Risk Engine.
+
+https://github.com/Gururaj-GJ/zarelva-agent-risk-engine
 
 ---
 
